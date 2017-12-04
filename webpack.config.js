@@ -9,6 +9,7 @@ module.exports = function (webpackConfig, env) {
     webpackConfig.entry.vendor = [
       'react',
       'react-dom',
+      'react-helmet',
       // 'react-i18next',
       // 'i18next',
       // 'i18next-browser-languagedetector',
@@ -20,7 +21,7 @@ module.exports = function (webpackConfig, env) {
       // 'redux-persist',
       // 'isomorphic-fetch',
       // 'classnames',
-      // 'reselect',
+      'reselect',
 
       // 已经确认的会增加拆解后总和体积的package, 不要把下列pack放入vendor里
       // 'socket.io',

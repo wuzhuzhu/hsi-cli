@@ -5,12 +5,10 @@ export default {
   hash: true,
   env: {
     extraBabelPlugins: [
-      "extraBabelPlugins",
-      "transform-runtime",
       [
         "import",
         {
-          "libraryName": "antd",
+          "libraryName": "antd-mobile",
           "style": true
         }
       ],
@@ -18,11 +16,14 @@ export default {
     development: {
       "extraBabelPlugins": [
         "dva-hmr",
+        "transform-runtime",
+        "transform-decorators-legacy",
       ],
     },
     production: {
       "extraBabelPlugins": [
-        // "transform-runtime"
+        "transform-runtime",
+        "transform-decorators-legacy"
       ]
     }
   },
@@ -42,10 +43,6 @@ export default {
   autoprefixer: {
     browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
   },
-   dllPlugin: {
-    exclude: ["babel-runtime", "roadhog", "better-npm-run"],
-    include: ["dva/router", "dva/saga", "dva/fetch"]
-  },
   proxy: {
     "/api": {
       target: process.env.API_HOST,
@@ -57,5 +54,9 @@ export default {
       changeOrigin: true,
       pathRewrite: {"^/jdapi": ""}
     }
-  }
+  },
+  dllPlugin: {
+    exclude: ["babel-runtime", "roadhog", "better-npm-run"],
+    include: ["dva/router", "dva/saga", "dva/fetch"]
+  },
 }
