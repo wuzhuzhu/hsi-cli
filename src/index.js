@@ -4,6 +4,7 @@ import 'antd-mobile/dist/antd-mobile.css';
 import createLoading from 'dva-loading'
 import createHistory from 'history/createBrowserHistory'
 import adaptive from 'adaptive.js'
+import { Toast } from 'antd-mobile'
 
 import './index.css';
 
@@ -14,7 +15,8 @@ const app = dva({
   }),
   history: createHistory(),
   onError (error) {
-    message.error(error.message)
+    console.error(error)
+    Toast.fail(error.message)
   },
 })
 
