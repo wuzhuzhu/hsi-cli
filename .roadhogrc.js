@@ -3,7 +3,7 @@ const pxtorem = require('postcss-pxtorem');
 export default {
   entry: "src/index.js",
   hash: true,
-  publicPath: "/static/",
+  // publicPath: "/static/",
   autoprefixer: {
     browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
   },
@@ -56,8 +56,8 @@ export default {
       pathRewrite: {"^/jdapi": ""}
     }
   },
-  dllPlugin: {
-    exclude: ["babel-runtime", "roadhog", "better-npm-run"],
-    include: ["dva/router", "dva/saga", "dva/fetch"]
-  },
+  // dllPlugin: {
+  //   exclude: ["babel-runtime", "roadhog", "better-npm-run"],
+  //   include: ["dva/router", "dva/saga", "dva/fetch"]
+  // },
 }
