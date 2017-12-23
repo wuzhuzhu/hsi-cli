@@ -5,12 +5,13 @@
     "dev": "better-npm-run dev",
     "build": "better-npm-run build",
     "lint": "eslint --ext .js src test",
+    "lint:fix": "npm run lint -- --fix",
     "precommit": "npm run lint",
     "build:dll": "better-npm-run build:dll"
   },
   "betterScripts": {
     "start": {
-      "command": "roadhog server"
+      "command": "DEBUG=leancloud* roadhog server"
     },
     "build": {
       "command": "roadhog build",
@@ -37,8 +38,11 @@
     "dva-loading": "^1.0.4",
     "express-dva-ssr": "^0.4.2",
     "keymaster": "^1.6.2",
+    "leancloud-storage": "^3.4.2",
+    "lodash": "^4.17.4",
     "moment": "^2.19.3",
     "proptypes": "^1.1.0",
+    "rc-form": "^2.1.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",

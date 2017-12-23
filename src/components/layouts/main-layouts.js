@@ -1,9 +1,11 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React from 'react';
 
 function MainLayout({ children }) {
-  return <div>
-    {children}
-  </div>
+  return (
+    <div>
+      {children}
+    </div>
+  )
 }
 
 export default MainLayout

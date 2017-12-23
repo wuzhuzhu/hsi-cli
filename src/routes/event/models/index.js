@@ -3,7 +3,7 @@
 import key from 'keymaster';
 
 export default {
-  namespace: 'sample',
+  namespace: 'event',
   state: {
     cumulate: 1,
     multiple: 2,

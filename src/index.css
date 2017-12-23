@@ -3,3 +3,6 @@ html, body, :global(#root) {
   height: 100%;
 }
 
+:global(#root) > div {
+  height: 100%;
+}

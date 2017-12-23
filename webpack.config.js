@@ -17,7 +17,7 @@ module.exports = function (webpackConfig, env) {
       'moment',
       // 'lodash',
       // 'localforage',
-      // 'rc-form',
+      'rc-form',
       // 'redux-persist',
       // 'isomorphic-fetch',
       // 'classnames',

@@ -1,10 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Router, Route, Switch, Redirect, routerRedux } from 'dva/router';
+import { Route, Switch, routerRedux } from 'dva/router';
 import dynamic from 'dva/dynamic'
 import MainLayout from './components/layouts/main-layouts'
-
-import IndexPage from './routes/IndexPage';
 
 const { ConnectedRouter } = routerRedux
 
@@ -18,6 +17,19 @@ function Routers({ history, app }) {
       path: '/game/portal',
       models: () => [import('./models/example.js')],
       component: () => import('./routes/IndexPage.js'),
+    },
+    {
+      path: '/',
+      component: () => import('./routes/event/containers/171224.js'),
+    },
+    {
+      path: '/event/asq/result',
+      component: () => import('./routes/event/components/asq-result.js'),
+    },
+    {
+      path: '/event/asq',
+      models: () => [import('./routes/event/models')],
+      component: () => import('./routes/event/containers/asq.js'),
     },
     {
       path: '/sample',
@@ -34,13 +46,14 @@ function Routers({ history, app }) {
     <ConnectedRouter history={history}>
       <MainLayout>
         <Switch>
-          <Route exact path="/" render={() => (<Redirect to="/game/portal" />)} />
+          {/* <Route exact path="/" render={() => (<Redirect to="/event/171224" />)} /> */}
           {
             routes.map(({ path, ...dynamics }, key) => (
-              <Route key={key}
-                     exact
-                     path={path}
-                     component={dynamic({
+              <Route
+                key={`route-${key}`}
+                exact
+                path={path}
+                component={dynamic({
                        app,
                        ...dynamics,
                      })}
