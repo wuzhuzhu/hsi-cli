@@ -12,6 +12,7 @@ import Nav from '../../../components/nav-bar'
 import QUESTIONS from '../../../constants/questions'
 import CARDS from '../../../constants/cards'
 import { browserHistory } from '../../../index'
+import AsqModel from '../../../services/models/asq'
 
 const CheckboxItem = Checkbox.CheckboxItem;
 const AgreeItem = Checkbox.AgreeItem;
@@ -30,8 +31,8 @@ class Asq extends React.Component {
   onSubmit = () => {
     this.props.form.validateFields((error, value) => {
       console.log(error, value, this.state);
-      const Asq = AV.Object.extend('Asq');
-      const asq = new Asq()
+      // const Asq = AV.Object.extend('Asq');
+      const asq = new AsqModel()
       asq.set('name', value.name)
       asq.set('birthDate', value.birthDate)
       asq.set('gender', value.gender ? 'female' : 'male')

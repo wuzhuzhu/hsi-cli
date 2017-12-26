@@ -1,12 +1,12 @@
 // import * as usersService from '../../../services/users';
 // import Immutable from 'seamless-immutable'
 import key from 'keymaster';
+import AV from 'leancloud-storage'
 
 export default {
   namespace: 'event',
   state: {
-    cumulate: 1,
-    multiple: 2,
+    asqList: [],
   },
   reducers: {
     add(state, action) {
@@ -24,43 +24,22 @@ export default {
     },
   },
   effects: {
-    /* fetch({ payload: { page = 1 } }, { call, put }) {
-      const { data, headers } = yield call(usersService.fetch, { page });
-      yield put({
-        type: 'save',
-        payload: {
-          data,
-          total: parseInt(headers['x-total-count'], 10),
-          page: parseInt(page, 10),
-        },
-      });
-    }, */
+    * fetchAsqList(action, { call, select, put }) {
+      try {
+        const asqQuery = new AV.Query('Asq')
+        const asqs = yield asqQuery.find();
+        // const { data: gameTypes } = yield call(mockServices.getGameTypes);
+        yield put({
+          type: 'saveAsqs',
+          payload: {
+            asqs,
+          },
+        })
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
   subscriptions: {
-    keyboardWatcher({ dispatch }) {
-      key('up', () => {
-        dispatch({
-          type: 'add',
-          payload: {
-            add: 1,
-          },
-        })
-      });
-      key('⌘+down, ctrl+down', () => {
-        dispatch({
-          type: 'add',
-          payload: {
-            add: -1,
-          },
-        })
-      });
-    },
-  /*  setup({ dispatch, history }) {
-      return history.listen(({ pathname, query }) => {
-        if (pathname === '/') {
-          dispatch({ type: 'fetch', payload: query });
-        }
-      });
-    }, */
   },
 };

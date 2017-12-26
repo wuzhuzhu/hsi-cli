@@ -27,6 +27,11 @@ function Routers({ history, app }) {
       component: () => import('./routes/event/components/asq-result.js'),
     },
     {
+      path: '/event/asq/list',
+      models: () => [import('./routes/event/models')],
+      component: () => import('./routes/event/containers/asq-list.js'),
+    },
+    {
       path: '/event/asq',
       models: () => [import('./routes/event/models')],
       component: () => import('./routes/event/containers/asq.js'),
