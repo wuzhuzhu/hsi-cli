@@ -38,7 +38,7 @@ class Asq extends React.Component {
       asq.set('gender', value.gender ? 'female' : 'male')
       asq.set('phone', value.phone)
       asq.set('skin', this.state.skin)
-      asq.set('facial', this.state.skin)
+      asq.set('facial', this.state.facial)
       asq.set('body', this.state.body)
       asq.set('card', this.state.card)
       asq.save().then((todo) => {

@@ -14,7 +14,7 @@ function Nav() {
         //   <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         //   <Icon key="1" type="ellipsis" />,
         // ]}
-      >北京辽源企业商会
+      >学习型中国-世纪成功论坛
       </NavBar>
     </div>
   )
